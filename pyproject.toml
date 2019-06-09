@@ -6,6 +6,7 @@ authors = ["Omar Mendo <omen.mesa20@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+flask = "^1.0"
 
 [tool.poetry.dev-dependencies]
 
