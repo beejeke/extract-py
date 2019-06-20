@@ -1,0 +1,65 @@
+html, body{
+    height: 100%;
+}
+
+body {
+    background-image: linear-gradient(to right bottom, #b5f9bb, #cef3b5, #e0ecb6, #ebe7bc, #f0e3c6);
+    animation: 1s fadeIn;
+    animation-fill-mode: forwards;
+    font-family: 'Open Sans', sans-serif;
+    width: auto;
+    visibility: hidden;
+}
+
+footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%
+}
+
+.nav-page {
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.center {
+    text-align: center;
+}
+
+.card {
+    width: 90%;
+    margin: auto;
+}
+.icon {
+    margin: 10px;
+    transition: 0.5s;
+}
+
+.fa-linkedin:hover {
+    color: #00a5ff;
+}
+
+.fa-github-square:hover {
+    color: #faffa2;
+}
+
+.fa-twitter-square:hover {
+    color: #64e1ff;
+}
+
+.fa-envelope-square:hover {
+    color: #ad3324;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
