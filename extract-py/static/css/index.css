@@ -3,7 +3,7 @@ html, body{
 }
 
 body {
-    background-image: linear-gradient(to right bottom, #c9ffef, #d2fee2, #dffcd6, #eff9cc, #fff5c6);
+    background-image: linear-gradient(to right bottom, #b5f9bb, #cef3b5, #e0ecb6, #ebe7bc, #f0e3c6);
     animation: 1s fadeIn;
     animation-fill-mode: forwards;
     font-family: 'Open Sans', sans-serif;
