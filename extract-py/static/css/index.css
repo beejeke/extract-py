@@ -1,3 +1,61 @@
+html, body{
+    height:100%;
+}
+
 body {
-    background-color: #d1ecf1;
+    background: linear-gradient(0deg, rgba(119,138,127,1) 0%, rgba(215,215,215,1) 100%);
+    animation: 1s fadeIn;
+    animation-fill-mode: forwards;
+    font-family: 'Open Sans', sans-serif;
+    width: auto;
+    visibility: hidden;
+}
+
+footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%
+}
+
+.nav-page {
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.center {
+    text-align: center;
+}
+
+.icon {
+    margin: 10px;
+    transition: 0.3s;
+}
+
+.fa-linkedin:hover {
+    color: #00a5ff;
+}
+
+.fa-github-square:hover {
+    color: #faffa2;
+}
+
+.fa-twitter-square:hover {
+    color: #64e1ff;
+}
+
+.fa-envelope-square:hover {
+    color: #ad3324;
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
 }
