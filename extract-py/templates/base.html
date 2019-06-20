@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap/bootstrap.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/fawesome/all.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap/mdb.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap/chosen.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/datatables/datatables.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/datatables/dt_bootstrap4.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}" />
@@ -65,7 +66,14 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/mdb.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/popper.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/chosen.jquery.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/datatables/datatables.min.js') }}"></script>
+
+    <script>
+    $(document).ready(function(){
+        $(".chosen").chosen({allow_single_deselect: true});
+    });
+    </script>
 
     {% block scripts %}{% endblock %}
 
