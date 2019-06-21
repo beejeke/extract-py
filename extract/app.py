@@ -1,15 +1,36 @@
-from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
+import os
 
-'''Flask instance to create web server'''
-app = Flask(__name__)
+from flask import Flask
+from flask_migrate import Migrate
 
-
-@app.route('/')
-def index():
-    return render_template('index.html')
+import config
+from extract.model import db
+from extract.views import frontend
 
 
-@app.route('/patients/')
-def patients():
-    return render_template('patients.html')
+def get_config(config_name=None):
+    """
+    Get configuration for `config_name`.
+
+    If `config_name` is None defaults to environment variable `FLASK_ENV`.
+    If this is not defined, defaults to "development"
+    """
+    name = (config_name or os.getenv("FLASK_ENV", "default")).lower()
+    return {
+        "development": config.DevelopmentConfig,
+        "testing": config.TestingConfig,
+        "default": config.DevelopmentConfig,
+    }[name]()
+
+
+def create_app(config_name=None):
+    """
+    Create a Flask application.
+    """
+    app = Flask(__name__)
+    app.config.from_object(get_config(config_name))
+    db.init_app(app)
+    Migrate(app, db)
+    db.create_all(app=app)
+    app.register_blueprint(frontend)
+    return app
