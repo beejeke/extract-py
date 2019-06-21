@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 
 '''Flask instance to create web server'''
 app = Flask(__name__)
