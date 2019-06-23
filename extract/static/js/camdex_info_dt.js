@@ -9,5 +9,29 @@ $(document).ready( function () {
         autoWidth: true,
         paging: false,
         searching: false,
+        processing: true,
+        serverSide: false,
+        ajax: {
+            url: "/patients/" + $('#patient').val(),
+            data: function(data) {
+                data.patient = $('#patient').val();
+            }
+        },
+        columns: [
+            { data: "id" },
+            { data: "name" },
+            { data: "address" },
+            { data: "phone" },
+            { data: "email" },
+            { data: "age" },
+            { data: "dni" },
+            { data: "birthdate" },
+        ]
+    } );
+
+    $('#patient').on('change', function() {
+        var table = $('#camdex_patient').DataTable();
+        table.ajax.url("/patients/" + $('#patient').val());
+        table.ajax.reload();
     } );
 } );

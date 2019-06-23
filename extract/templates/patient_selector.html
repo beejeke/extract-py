@@ -3,12 +3,9 @@
 <div class="col-md-6 col-sm-6 col-xs-6" style="padding-top: 15px;">
     <label for="patient">Nombre del paciente: </label>
     <select id="patient" name="patient" class="form-control chosen" style="width:50%; display:inline;">
-        <option>Juan Pérez Pérez</option>
-        <option>María Méndez Méndez</option>
-        <option>José Arriba Abajo</option>
-        <option>Andrés Eme Ele</option>
-        <option>Josefina Izquierdo Derecho</option>
-        <option>Alfredo Di Stefano</option>
+        {% for patients in patient %}
+        <option>{{ patients.name }}</option>
+        {% endfor %}
     </select>
 </div>
 <div class="col-md-6 col-sm-6 col-xs-6">

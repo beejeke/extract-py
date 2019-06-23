@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask
+
 from flask_migrate import Migrate
 
 import config
@@ -34,3 +35,4 @@ def create_app(config_name=None):
     db.create_all(app=app)
     app.register_blueprint(frontend)
     return app
+

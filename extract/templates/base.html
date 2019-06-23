@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
         <a class="navbar-brand" href="https://www.antonioalayon.com/">
             <img src="/static/img/logo.png" width="75%" height="75%" alt="">
         </a>
@@ -25,14 +25,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item borders-out">
-                    <a class="nav-page nav-link" href="{{ url_for('frontend.index') }}">Inicio</a>
+                <li class="nav-item borders-out{% if title == 'Inicio' %} active{% endif %}">
+                    <a class="a1 py-2 nav-link" href="{{ url_for('frontend.index') }}">Inicio</a>
                 </li>
-                <li class="nav-item borders-out">
-                    <a class="nav-page nav-link" href="{{ url_for('frontend.patients') }}">Pacientes</a>
+                <li class="nav-item borders-out{% if title == 'Pacientes' %} active{% endif %}">
+                    <a class="a1 py-2 nav-link" href="{{ url_for('frontend.patients') }}">Pacientes</a>
                 </li>
-                <li class="nav-item borders-out">
-                    <a class="nav-page nav-link" href="#">Gráficas</a>
+                <li class="nav-item borders-out{% if title == 'Gráficas' %} active{% endif %}">
+                    <a class="a1 py-2 nav-link" href="#">Gráficas</a>
                 </li>
             </ul>
         </div>
@@ -44,12 +44,12 @@
         <div class="container-fluid text-center text-md-left">
             <div class="center row">
                 <div class="col-md-6 mt-md-0 mt-3">
-                    <h5 class="text-uppercase">CAMDEX Tool</h5>
-                    <p>Herramienta desarrollada como TFG para la Clínica Neurológica Alayón</p>
+                    <h5 class="text-uppercase">CAMDEX Tool - © Omar Mendo</h5>
+                    <p>Herramienta desarrollada como TFG para el Centro Neurológico Antonio Alayón</p>
                 </div>
                 <hr class="clearfix w-100 d-md-none pb-3">
                 <div class="col-md-6 mb-md-0 mb-3">
-                    <h5 class="text-uppercase">Contáctame</h5>
+                    <h5 class="text-uppercase">Contacta conmigo</h5>
                     <a href="https://www.linkedin.com/in/omarmendo/" target="_blank"><i class="icon fab fa-linkedin fa-2x"></i></a>
                     <a href="https://github.com/beejeke" target="_blank"><i class="icon fab fa-github-square fa-2x"></i></a>
                     <a href="https://twitter.com/beejeke" target="_blank"><i class="icon fab fa-twitter-square fa-2x"></i></a>
