@@ -1,5 +1,8 @@
 # Database model from SQL Alchemy
+from datetime import datetime
+
 from enum import Enum
+
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -70,10 +73,11 @@ class Patient(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(40), primary_key=True)
     address = db.Column(db.String(60), unique=False)
+    phone = db.Column(db.Integer, nullable=False)
     email = db.Column(db.String(30), unique=True)
     age = db.Column(db.Integer, unique=False, nullable=False)
     dni = db.Column(db.String(9), unique=True, nullable=False)
-    birthdate = db.Column(db.DateTime, nullable=False)
+    birthdate = db.Column(db.String(10), nullable=False)
 
 
 """
