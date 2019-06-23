@@ -3,7 +3,10 @@ html, body{
 }
 
 body {
-    background-color: #d5ecd8;
+    background-color: #e7ffea;
+    margin: 0;
+    padding: 0;
+    height: 100%;
     animation: 1s fadeIn;
     animation-fill-mode: forwards;
     font-family: 'Open Sans', sans-serif;
@@ -11,10 +14,13 @@ body {
     visibility: hidden;
 }
 
-footer {
-    bottom: 0;
-    position: absolute;
-    width: 100%
+.page-footer {
+    width: 100%;
+    color: white;
+}
+
+.footer-copyright {
+    background-color: #272727;
 }
 
 .nav-page {
@@ -30,11 +36,28 @@ footer {
 
 .card {
     width: 90%;
-    margin: auto;
+    margin: 25px auto 100px auto;
+
 }
 .icon {
     margin: 10px;
     transition: 0.5s;
+}
+
+.fa-linkedin {
+    color: #e3e3e3;
+}
+
+.fa-github-square {
+    color: #e3e3e3;
+}
+
+.fa-twitter-square {
+    color: #e3e3e3;
+}
+
+.fa-envelope-square {
+    color: #e3e3e3;
 }
 
 .fa-linkedin:hover {

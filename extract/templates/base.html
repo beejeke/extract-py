@@ -38,7 +38,9 @@
         </div>
     </nav>
 
-    <footer class="page-footer font-small elegant-color pt-4">
+    <div id="content">{% block content %} {% endblock %}</div>
+
+     <div class="page-footer font-small elegant-color pt-4">
         <div class="container-fluid text-center text-md-left">
             <div class="center row">
                 <div class="col-md-6 mt-md-0 mt-3">
@@ -58,16 +60,15 @@
         <div class="footer-copyright text-center py-3">© 2019 Copyright:
             <a href="https://beejeke.github.io/"> Omar Mendo </a>
         </div>
-    </footer>
+    </div>
 
-    <div id="content">{% block content %} {% endblock %}</div>
-
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/bootstrap.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/mdb.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/popper.min.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/jquery.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/chosen.jquery.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/datatables/datatables.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/extract.js') }}"></script>
 
     <script>
     $(document).ready(function(){
