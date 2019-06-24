@@ -3,7 +3,7 @@ html, body{
 }
 
 body {
-    background-color: #e7ffea;
+    background-image: linear-gradient(to right bottom, #deebca, #e1ebbb, #e8ebac, #f2e99c, #ffe68c);
     margin: 0;
     padding: 0;
     height: 100%;
