@@ -1,4 +1,5 @@
 from marshmallow_sqlalchemy import ModelSchema
+
 from extract.model import Patient
 
 

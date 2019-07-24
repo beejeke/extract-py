@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark justify-content-between">
         <a class="navbar-brand" href="https://www.antonioalayon.com/">
             <img src="/static/img/logo.png" width="75%" height="75%" alt="">
         </a>
@@ -26,14 +26,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item borders-out{% if title == 'Inicio' %} active{% endif %}">
-                    <a class="a1 py-2 nav-link" href="{{ url_for('frontend.index') }}">Inicio</a>
+                <li class="li1 nav-item{% if title == 'Pacientes' %} active{% endif %}">
+                    <a class="nav-link" href="{{ url_for('frontend.patients') }}">Pacientes</a>
                 </li>
-                <li class="nav-item borders-out{% if title == 'Pacientes' %} active{% endif %}">
-                    <a class="a1 py-2 nav-link" href="{{ url_for('frontend.patients') }}">Pacientes</a>
-                </li>
-                <li class="nav-item borders-out{% if title == 'Gráficas' %} active{% endif %}">
-                    <a class="a1 py-2 nav-link" href="#">Gráficas</a>
+                <li class="li1 nav-item{% if title == 'Gráficas' %} active{% endif %}">
+                    <a class="nav-link" href="#">Gráficas</a>
                 </li>
             </ul>
         </div>
@@ -70,6 +67,7 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap/chosen.jquery.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/datatables/datatables.min.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/extract.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
 
     <script>
     $(document).ready(function(){

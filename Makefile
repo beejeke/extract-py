@@ -21,6 +21,10 @@ shell: install  # Run development shell for the Flask application.
 init: install  # Create migrations directory.
 	FLASK_APP=extract FLASK_ENV=development poetry run flask db init
 
+.PHONY: migrate
+migrate: install    # Make a database migration.
+    FLASK_APP=extract FLASK_ENV=development poetry run flask db migrate
+
 .PHONY: upgrade
 upgrade: install  # Upgrade database to a later version.
 	FLASK_APP=extract FLASK_ENV=development poetry run flask db upgrade
