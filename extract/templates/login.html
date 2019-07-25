@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
-{% set title = "Inicio" %}
+{% set title = "Login" %}
 
 <head>
 
@@ -47,34 +47,27 @@
 </div>
 
 <div class="row" id="card-registro">
-    <div class="col-sm-6">
+    <div class="col-sm-12">
         <div class="card">
-            <form method="POST">
-                <div class="form-group">
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center">Iniciar Sesión</h5>
-                        <p class="card-text" style="text-align: center">Inicie sesión para acceder a la plataforma.</p>
-                        <div>
-                            <a href="/login" class="btn btn-success" style="width:100%; margin:auto">Log In</a>
-                        </div>
+            <div class="container">
+                <div class="row" style="margin: 2%">
+                    <div class="col-sm-12">
+                        <form method="POST">
+                            <h5 class="card-title" style="text-align: center">Iniciar Sesión</h5>
+                            <p class="card-text" style="text-align: center">Inicie sesión para acceder a la plataforma.</p>
+                            <div class="form-group">
+                                <label >Usuario</label>
+                                <input type="text" name="userlog" class="form-control" id="userlog">
+                            </div>
+                            <div class="form-group">
+                                <label >Contraseña</label>
+                                <input type="password" name="pwdlog" class="form-control" id="pwdlog">
+                            </div>
+                        <button type="submit" class="btn btn-success" style="width:100%; margin:auto">Login</button>
+                        </form>
                     </div>
                 </div>
-            </form>
-        </div>
-    </div>
-    <div class="col-sm-6">
-        <div class="card">
-            <form method="POST">
-                <div class="form-group">
-                    <div class="card-body">
-                        <h5 class="card-title" style="text-align: center">Registro</h5>
-                        <p class="card-text" style="text-align: center">Regístrese si no posee cuenta para poder acceder a la plataforma.</p>
-                        <div>
-                            <a href="/register" class="btn btn-info" style="width:100%; margin:auto">Registro</a>
-                        </div>
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
@@ -109,4 +102,42 @@
 
 </body>
 </html>
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <title>Login | Flask</title>
+    <!-- Latest compiled and minified CSS
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <!-- Optional theme
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row" style="margin-top: 40px">
+            <div class="col-sm-6">
+                <form method="POST">
+                    <div class="form-group">
+                      <label >Username : </label>
+                      <input type="text" name="userlog" class="form-control" id="userlog">
+                    </div>
+                    <div class="form-group">
+                      <label >Password : </label>
+                      <input type="password" name="pwdlog" class="form-control" id="pwdlog">
+                    </div>
+                    <button type="submit" class="btn form-control btn-default">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<!-- Latest compiled and minified JavaScript
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>-->
