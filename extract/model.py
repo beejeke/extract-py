@@ -70,7 +70,6 @@ Table with patients personal information
 
 class Patient(db.Model):
     __tablename__ = "patient"
-    id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(40), primary_key=True)
     address = db.Column(db.String(60), unique=False)
     phone = db.Column(db.Integer, nullable=False)
@@ -87,9 +86,6 @@ Table with patients CAMDEX data
 
 class CamdexData(db.Model):
     __tablename__ = "camdex_data"
-    patient_id = db.Column(
-        db.Integer, db.ForeignKey("patient.id"), primary_key=True
-    )
     patient_name = db.Column(
         db.String(40), db.ForeignKey("patient.name"), primary_key=True
     )

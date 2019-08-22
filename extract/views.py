@@ -1,4 +1,4 @@
-from flask import (Blueprint, jsonify, render_template, redirect, url_for, logging, request)
+from flask import (Blueprint, flash, jsonify, render_template, redirect, url_for, logging, request)
 
 from extract.model import CamdexData, Patient, User, Variable, db
 from extract.schema import PatientInfo
@@ -41,6 +41,45 @@ def register():
 def patients():
     patient = Patient.query.order_by(Patient.name).all()
     return render_template('patients.html', patient=patient)
+
+
+@frontend.route('/add_patient', methods=["POST"])
+def add_patient():
+    if request.method == 'POST':
+        name_new = request.form['name_new']
+        address_new = request.form['address_new']
+        phone_new = request.form['phone_new']
+        email_new = request.form['email_new']
+        age_new = request.form['age_new']
+        dni_new = request.form['dni_new']
+        birthdate_new = request.form['birthdate_new']
+
+        new_patient = Patient(name=name_new,
+                              address=address_new,
+                              phone=phone_new,
+                              email=email_new,
+                              age=age_new,
+                              dni=dni_new,
+                              birthdate=birthdate_new)
+        db.session.add(new_patient)
+        db.session.commit()
+
+        flash('Historial clínico de paciente añadido satisfactoriamente', 'success')
+
+        print(name_new)
+        return redirect(url_for("frontend.patients"))
+    return redirect(url_for("frontend.patients"))
+
+
+@frontend.route('/delete_patient/<name>', methods=["POST"])
+def delete_patient(name):
+    if request.method == 'POST':
+        Patient.query.filter(Patient.name == name).delete()
+        db.session.commit()
+
+        flash('Historial clínico de paciente eliminado satisfactoriamente', 'warning')
+
+    return redirect(url_for("frontend.patients"))
 
 
 @frontend.route("/patients/<name>")

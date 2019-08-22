@@ -18,6 +18,10 @@ body {
     margin: 5%;
 }
 
+#logout {
+    position: center;
+}
+
 .page-footer {
     width: 100%;
     color: white;
