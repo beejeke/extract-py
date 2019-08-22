@@ -18,7 +18,6 @@ $(document).ready( function () {
             }
         },
         columns: [
-            { data: "id" },
             { data: "name" },
             { data: "address" },
             { data: "phone" },

@@ -24,48 +24,48 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="patient-name" class="col-form-label">Nombre:</label>
-                                <input type="text" class="form-control" id="patient-name">
+                                <label for="patient-name-mod" class="col-form-label">Nombre:</label>
+                                <input type="text" class="form-control" id="patient-name-mod">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="patient-address" class="col-form-label">Dirección:</label>
-                                <input type="text" class="form-control" id="patient-address">
+                                <label for="patient-address-mod" class="col-form-label">Dirección:</label>
+                                <input type="text" class="form-control" id="patient-address-mod">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="patient-phone" class="col-form-label">Teléfono:</label>
-                                <input type="text" class="form-control" id="patient-phone">
+                                <label for="patient-phone-mod" class="col-form-label">Teléfono:</label>
+                                <input type="text" class="form-control" id="patient-phone-mod">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="patient-email" class="col-form-label">Correo:</label>
-                                <input type="text" class="form-control" id="patient-email">
+                                <label for="patient-email-mod" class="col-form-label">Correo:</label>
+                                <input type="text" class="form-control" id="patient-email-mod">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="patient-age" class="col-form-label">Edad:</label>
-                                <input type="text" class="form-control" id="patient-age">
+                                <label for="patient-age-mod" class="col-form-label">Edad:</label>
+                                <input type="text" class="form-control" id="patient-age-mod">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="patient-dni" class="col-form-label">DNI:</label>
-                                <input type="text" class="form-control" id="patient-dni">
+                                <label for="patient-dni-mod" class="col-form-label">DNI:</label>
+                                <input type="text" class="form-control" id="patient-dni-mod">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="patient-birthdate" class="col-form-label">Fecha de nacimiento:</label>
-                                <input type="text" class="form-control" id="patient-birthdate">
+                                <label for="patient-birthdate-mod" class="col-form-label">Fecha de nacimiento:</label>
+                                <input type="text" class="form-control" id="patient-birthdate-mod">
                             </div>
                         </div>
                     </div>
@@ -82,6 +82,7 @@
     <div class="modal fade bd-example-modal-lg" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="modalAddTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
+                <form action="/patients" method="POST">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalAddTitle">Añadir datos del nuevo paciente</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -92,59 +93,61 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="patient-name" class="col-form-label">Nombre:</label>
-                                <input type="text" class="form-control" id="patient-name">
+                                <label class="col-form-label">Nombre:</label>
+                                <input type="text" class="form-control" name="name_new">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="patient-address" class="col-form-label">Dirección:</label>
-                                <input type="text" class="form-control" id="patient-address">
+                                <label class="col-form-label">Dirección:</label>
+                                <input type="text" class="form-control" name="address_new">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="patient-phone" class="col-form-label">Teléfono:</label>
-                                <input type="text" class="form-control" id="patient-phone">
+                                <label class="col-form-label">Teléfono:</label>
+                                <input type="text" class="form-control" name="phone_new">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="patient-email" class="col-form-label">Correo:</label>
-                                <input type="text" class="form-control" id="patient-email">
+                                <label class="col-form-label">Correo:</label>
+                                <input type="text" class="form-control" name="email_new">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="patient-age" class="col-form-label">Edad:</label>
-                                <input type="text" class="form-control" id="patient-age">
+                                <label class="col-form-label">Edad:</label>
+                                <input type="text" class="form-control" name="age_new">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="patient-dni" class="col-form-label">DNI:</label>
-                                <input type="text" class="form-control" id="patient-dni">
+                                <label class="col-form-label">DNI:</label>
+                                <input type="text" class="form-control" name="dni_new">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="patient-birthdate" class="col-form-label">Fecha de nacimiento:</label>
-                                <input type="text" class="form-control" id="patient-birthdate">
+                                <label class="col-form-label">Fecha de nacimiento:</label>
+                                <input type="text" class="form-control" name="birthdate_new">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
+
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">Borrar</button>
 
     <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel" aria-hidden="true">

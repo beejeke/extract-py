@@ -43,6 +43,33 @@ def patients():
     return render_template('patients.html', patient=patient)
 
 
+@frontend.route('/patients', methods=["POST"])
+def add_patient():
+    if request.method == 'POST':
+        name_new = request.form['name_new']
+        address_new = request.form['address_new']
+        phone_new = request.form['phone_new']
+        email_new = request.form['email_new']
+        age_new = request.form['age_new']
+        dni_new = request.form['dni_new']
+        birthdate_new = request.form['birthdate_new']
+
+        new_patient = Patient(name=name_new,
+                              address=address_new,
+                              phone=phone_new,
+                              email=email_new,
+                              age=age_new,
+                              dni=dni_new,
+                              birthdate=birthdate_new)
+        db.session.add(new_patient)
+        db.session.commit()
+
+        print(name_new)
+        patient = Patient.query.order_by(Patient.name).all()
+        return render_template('patients.html', patient=patient)
+    return render_template('patients.html')
+
+
 @frontend.route("/patients/<name>")
 def get_data(name):
     query = Patient.query.filter(Patient.name == name)
