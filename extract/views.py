@@ -1,4 +1,4 @@
-from flask import (Blueprint, jsonify, render_template, redirect, url_for, logging, request)
+from flask import (Blueprint, flash, jsonify, render_template, redirect, url_for, logging, request)
 
 from extract.model import CamdexData, Patient, User, Variable, db
 from extract.schema import PatientInfo
@@ -43,7 +43,7 @@ def patients():
     return render_template('patients.html', patient=patient)
 
 
-@frontend.route('/patients', methods=["POST"])
+@frontend.route('/add_patient', methods=["POST"])
 def add_patient():
     if request.method == 'POST':
         name_new = request.form['name_new']
@@ -64,10 +64,22 @@ def add_patient():
         db.session.add(new_patient)
         db.session.commit()
 
+        flash('Historial clínico de paciente añadido satisfactoriamente', 'success')
+
         print(name_new)
-        patient = Patient.query.order_by(Patient.name).all()
-        return render_template('patients.html', patient=patient)
-    return render_template('patients.html')
+        return redirect(url_for("frontend.patients"))
+    return redirect(url_for("frontend.patients"))
+
+
+@frontend.route('/delete_patient/<name>', methods=["POST"])
+def delete_patient(name):
+    if request.method == 'POST':
+        Patient.query.filter(Patient.name == name).delete()
+        db.session.commit()
+
+        flash('Historial clínico de paciente eliminado satisfactoriamente', 'warning')
+
+    return redirect(url_for("frontend.patients"))
 
 
 @frontend.route("/patients/<name>")

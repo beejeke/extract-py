@@ -82,7 +82,7 @@
     <div class="modal fade bd-example-modal-lg" id="modalAdd" tabindex="-1" role="dialog" aria-labelledby="modalAddTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
-                <form action="/patients" method="POST">
+                <form action="/add_patient" method="POST">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modalAddTitle">Añadir datos del nuevo paciente</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -153,6 +153,9 @@
     <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
+                {% for patients in patient %}
+                <form action="{{ url_for('frontend.delete_patient', name=patients.name) }}" method="POST">
+                    {% endfor %}
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Borrar historial del paciente</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -164,8 +167,9 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger">Borrar</button>
+                    <button type="submit" class="btn btn-danger">Borrar</button>
                 </div>
+                </form>
             </div>
         </div>
     </div>
