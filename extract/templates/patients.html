@@ -6,9 +6,9 @@
 
 {% include 'messages.html' %}
 
-<div class="alert alert-info alert-dismissible fade show" role="alert">
-    <strong>¡Bienvenid@!</strong> Aquí podrás <strong>añadir</strong> datos de un nuevo paciente, <strong>modificar</strong>
-    los datos de un paciente ya dado de alta o <strong>borrar</strong> el historial clínico de cualquier paciente.
+<div class="alert alert-info alert-dismissible fade show" role="alert" style="text-align: center;">
+    <strong>¡Bienvenid@!</strong> Aquí podrás <strong>añadir</strong> el historial de un nuevo paciente, <strong>modificar</strong>
+    sus datos o <strong>borrar</strong> su historial clínico.
     <br>
     <br>
     Además, podrás consultar los datos del <strong> examen CAMDEX </strong> del paciente que seleccione.
@@ -54,7 +54,6 @@
         <table id="camdex" class="display">
             <thead>
                 <tr>
-                    <th>Nombre</th>
                     <th data-toggle="tooltip" data-placement="top" title="Valor máximo de medición: 30">MMSE</th>
                     <th data-toggle="tooltip" data-placement="top" title="Valor máximo de medición: 35">MEC</th>
                     <th data-toggle="tooltip" data-placement="top" title="Valor máximo de medición: 10">Test Roth y Hopkins</th>
@@ -74,28 +73,6 @@
                     <th data-toggle="tooltip" data-placement="top" title="Valor máximo de medición: 11">Percepción táctil-visual</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>Juan Pérez Pérez</td>
-                    <td>15,20,20,16</td>
-                    <td>16,21,21,18</td>
-                    <td>4,3,4,3</td>
-                    <td>50,53,57,57</td>
-                    <td>6,7,7,7</td>
-                    <td>18,18,20,20</td>
-                    <td>8,8,9,9</td>
-                    <td>10,10,11,11</td>
-                    <td>11,10,10,12</td>
-                    <td>1,2,2,2</td>
-                    <td>2,3,3,4</td>
-                    <td>8,5,6</td>
-                    <td>0,0,1,0</td>
-                    <td>5,6,8,7</td>
-                    <td>0,1,0,1</td>
-                    <td>2,3,2,2</td>
-                    <td>5,5,6,6</td>
-                </tr>
-            </tbody>
         </table>
     </div>
 </div>
