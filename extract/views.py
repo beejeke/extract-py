@@ -111,11 +111,12 @@ def add_patient():
     return redirect(url_for("frontend.patients"))
 
 
-@frontend.route('/delete_patient/<name>', methods=["POST"])
-def delete_patient(name):
+@frontend.route('/delete_patient', methods=["POST"])
+def delete_patient():
     if request.method == 'POST':
-        Patient.query.filter(Patient.name == name).delete()
-        CamdexData.query.filter(CamdexData.patient_name == name).delete()
+        name_del = request.form['name_delete']
+        Patient.query.filter(Patient.name == name_del).delete()
+        CamdexData.query.filter(CamdexData.patient_name == name_del).delete()
         db.session.commit()
 
         flash('Historial clínico de paciente eliminado satisfactoriamente.', 'warning')
