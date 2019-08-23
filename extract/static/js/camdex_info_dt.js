@@ -9,8 +9,9 @@ $(document).ready( function () {
         autoWidth: true,
         paging: false,
         searching: false,
+        ordering: false,
         processing: true,
-        serverSide: false,
+        serverSide: true,
         ajax: {
             url: "/patients/" + $('#patient').val(),
             data: function(data) {
