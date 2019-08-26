@@ -1,7 +1,3 @@
-import json
-import plotly
-import plotly.graph_objs as go
-
 from flask import (Blueprint, flash, jsonify, render_template, redirect, url_for, logging, request)
 
 from extract.model import CamdexData, Patient, User, Variable, db
@@ -214,9 +210,11 @@ def delete_patient(name):
 def split_data(name, chart_name):
     camdex_mmse = CamdexData.query.filter(CamdexData.patient_name == name).all()
 
+    dates = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
     for row in camdex_mmse:
         if chart_name == 'mmse':
-            mmse_x = [1, 2, 3, 4]
+            mmse_x = dates
             mmse_y = [yaxis.strip() for yaxis in row.mmse.split(',')]
             mmse_y.reverse()
 
@@ -225,7 +223,7 @@ def split_data(name, chart_name):
             return jsonify(data_)
 
         elif chart_name == 'mec':
-            mec_x = [1, 2, 3, 4]
+            mec_x = dates
             mec_y = [yaxis.strip() for yaxis in row.mec.split(',')]
             mec_y.reverse()
 
@@ -234,11 +232,137 @@ def split_data(name, chart_name):
             return jsonify(data_)
 
         elif chart_name == 'ryh':
-            ryh_x = [1, 2, 3, 4]
+            ryh_x = dates
             ryh_y = [yaxis.strip() for yaxis in row.ryh.split(',')]
             ryh_y.reverse()
 
             data_ = data_graphs[CamdexData.ryh](ryh_x, ryh_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'ct':
+            ct_x = dates
+            ct_y = [yaxis.strip() for yaxis in row.ct.split(',')]
+            ct_y.reverse()
+
+            data_ = data_graphs[CamdexData.ct](ct_x, ct_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'ori':
+            ori_x = dates
+            ori_y = [yaxis.strip() for yaxis in row.ori.split(',')]
+            ori_y.reverse()
+
+            data_ = data_graphs[CamdexData.ori](ori_x, ori_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'lt':
+            lt_x = dates
+            lt_y = [yaxis.strip() for yaxis in row.lt.split(',')]
+            lt_y.reverse()
+
+            data_ = data_graphs[CamdexData.lt](lt_x, lt_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'lc':
+            lc_x = dates
+            lc_y = [yaxis.strip() for yaxis in row.lc.split(',')]
+            lc_y.reverse()
+
+            data_ = data_graphs[CamdexData.lc](lc_x, lc_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'lp':
+            lp_x = dates
+            lp_y = [yaxis.strip() for yaxis in row.lp.split(',')]
+            lp_y.reverse()
+
+            data_ = data_graphs[CamdexData.lp](lp_x, lp_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'mt':
+            mt_x = dates
+            mt_y = [yaxis.strip() for yaxis in row.mt.split(',')]
+            mt_y.reverse()
+
+            data_ = data_graphs[CamdexData.mt](mt_x, mt_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'mrec':
+            mrec_x = dates
+            mrec_y = [yaxis.strip() for yaxis in row.mrec.split(',')]
+            mrec_y.reverse()
+
+            data_ = data_graphs[CamdexData.ori](mrec_x, mrec_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'mrem':
+            mrem_x = dates
+            mrem_y = [yaxis.strip() for yaxis in row.mrem.split(',')]
+            mrem_y.reverse()
+
+            data_ = data_graphs[CamdexData.mrem](mrem_x, mrem_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'ma':
+            ma_x = dates
+            ma_y = [yaxis.strip() for yaxis in row.ma.split(',')]
+            ma_y.reverse()
+
+            data_ = data_graphs[CamdexData.ma](ma_x, ma_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'ac':
+            ac_x = dates
+            ac_y = [yaxis.strip() for yaxis in row.ac.split(',')]
+            ac_y.reverse()
+
+            data_ = data_graphs[CamdexData.ac](ac_x, ac_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'pr':
+            pr_x = dates
+            pr_y = [yaxis.strip() for yaxis in row.pr.split(',')]
+            pr_y.reverse()
+
+            data_ = data_graphs[CamdexData.pr](pr_x, pr_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'cal':
+            cal_x = dates
+            cal_y = [yaxis.strip() for yaxis in row.cal.split(',')]
+            cal_y.reverse()
+
+            data_ = data_graphs[CamdexData.cal](cal_x, cal_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'pabs':
+            pabs_x = dates
+            pabs_y = [yaxis.strip() for yaxis in row.pabs.split(',')]
+            pabs_y.reverse()
+
+            data_ = data_graphs[CamdexData.pabs](pabs_x, pabs_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'ptv':
+            ptv_x = dates
+            ptv_y = [yaxis.strip() for yaxis in row.ptv.split(',')]
+            ptv_y.reverse()
+
+            data_ = data_graphs[CamdexData.ptv](ptv_x, ptv_y)
 
             return jsonify(data_)
 
