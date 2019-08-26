@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% set title = "Editar paciente" %}
+
+{% block content %}
+
+<div class="alert alert-info alert-dismissible fade show" role="alert" style="text-align: center;">
+    <strong>¡Bienvenid@!</strong> Aquí podrás <strong>modificar</strong> el historial de paciente, tanto sus <strong>datos personales</strong>
+     como los datos del <strong>examen CAMDEX</strong>
+    <br>
+    <br>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+
+<div class="col-md-12 col-sm-12 col-xs-6">
+<div class="card">
+    <div class="card-header">
+        <h5>Edición de datos del paciente:  <strong>{{ patient.name }}</strong></h5>
+    </div>
+    <div class="card-body">
+        <form action="/update_patient/{{ patient.name }}" method="POST">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalModTitle">Modificar datos del paciente</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputAddress">Dirección</label>
+                        <input type="text" class="form-control" id="inputAddress" name="address_mod" value="{{ patient.address }}">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputPhone">Teléfono</label>
+                        <input type="text" class="form-control" id="inputPhone" name="phone_mod" value="{{ patient.phone }}">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputEmail">Correo</label>
+                        <input type="text" class="form-control" id="inputEmail" name="email_mod" value="{{ patient.email }}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputAge">Edad</label>
+                        <input type="text" class="form-control" id="inputAge" name="age_mod" value="{{ patient.age }}">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputDNI">DNI</label>
+                        <input type="text" class="form-control" id="inputDNI" name="dni_mod" value="{{ patient.dni }}">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputBirth">F. nacimiento</label>
+                        <input type="text" class="form-control" id="inputBirth" name="birthdate_mod" value="{{ patient.birthdate }}">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalModTitle2">Modificar datos del examen CAMDEX</h5>
+            </div>
+            <div class="modal-body">
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputMMSE">MMSE</label>
+                        <input type="text" class="form-control" id="inputMMSE" name="mmse_mod" value="{{ camdex.mmse }}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputMEC">Teléfono</label>
+                        <input type="text" class="form-control" id="inputMEC" name="mec_mod" value="{{ camdex.mec }}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputRyH">Test Roth y Hopkins</label>
+                        <input type="text" class="form-control" id="inputRyH" name="ryh_mod" value="{{ camdex.ryh }}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputCamcog">Camcog total</label>
+                        <input type="text" class="form-control" id="inputCamcog" name="ct_mod" value="{{ camdex.ct }}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputOri">Orientación</label>
+                        <input type="text" class="form-control" id="inputOri" name="ori_mod" value="{{ camdex.ori }}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputLT">Lenguaje total</label>
+                        <input type="text" class="form-control" id="inputLT" name="lt_mod" value="{{ camdex.lt }}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputLC">Lenguaje comprensivo</label>
+                        <input type="text" class="form-control" id="inputLC" name="lc_mod" value="{{ camdex.lc }}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputLP">Lenguaje productivo</label>
+                        <input type="text" class="form-control" id="inputLP" name="lp_mod" value="{{ camdex.lp }}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputMT">Memoria total</label>
+                        <input type="text" class="form-control" id="inputMT" name="mt_mod" value="{{ camdex.mt }}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputMRec">Memoria reciente</label>
+                        <input type="text" class="form-control" id="inputMRec" name="mrec_mod" value="{{ camdex.mrec }}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputMRem">Memoria remota</label>
+                        <input type="text" class="form-control" id="inputMRem" name="mrem_mod" value="{{ camdex.mrem }}">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputMApr">Memoria aprendizaje</label>
+                        <input type="text" class="form-control" id="inputMApr" name="ma_mod" value="{{ camdex.ma }}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputAC">Atención - Concentración</label>
+                        <input type="text" class="form-control" id="inputAC" name="ac_mod" value="{{ camdex.ac }}">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputPrax">Praxis</label>
+                        <input type="text" class="form-control" id="inputPrax" name="pr_mod" value="{{ camdex.pr }}">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputCalc">Cálculo</label>
+                        <input type="text" class="form-control" id="inputCalc" name="cal_mod" value="{{ camdex.cal }}">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputPAbs">Pensamiento abstracto</label>
+                        <input type="text" class="form-control" id="inputPAbs" name="pabs_mod" value="{{ camdex.pabs }}">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPTacVis">Percepción táctil - visual</label>
+                        <input type="text" class="form-control" id="inputPTacVis" name="ptv_mod" value="{{ camdex.ptv }}">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/edit_patient_dt.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/camdex_info_dt.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/camdex_dt.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/extract.js') }}"></script>
+
+{% endblock %}

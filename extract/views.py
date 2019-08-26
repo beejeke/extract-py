@@ -111,17 +111,92 @@ def add_patient():
     return redirect(url_for("frontend.patients"))
 
 
-@frontend.route('/delete_patient', methods=["POST"])
-def delete_patient():
+@frontend.route('/edit_patient/<string:name>')
+def edit_patient(name):
+    patient = Patient.query.filter(Patient.name == name).first()
+    camdex = CamdexData.query.filter(CamdexData.patient_name == name).first()
+
+    return render_template('edit.html', patient=patient, camdex=camdex)
+
+
+@frontend.route('/update_patient/<string:name>', methods=['POST'])
+def update_patient(name):
     if request.method == 'POST':
-        name_del = request.form['name_delete']
-        Patient.query.filter(Patient.name == name_del).delete()
-        CamdexData.query.filter(CamdexData.patient_name == name_del).delete()
+        address_mod = request.form['address_mod']
+        phone_mod = request.form['phone_mod']
+        email_mod = request.form['email_mod']
+        age_mod = request.form['age_mod']
+        dni_mod = request.form['dni_mod']
+        birthdate_mod = request.form['birthdate_mod']
+
+        mmse_mod = request.form['mmse_mod']
+        mec_mod = request.form['mec_mod']
+        ryh_mod = request.form['ryh_mod']
+        camcog_mod = request.form['ct_mod']
+        orientacion_mod = request.form['ori_mod']
+        lengt_mod = request.form['lt_mod']
+        lengcom_mod = request.form['lc_mod']
+        lengprod_mod = request.form['lp_mod']
+        memt_mod = request.form['mt_mod']
+        memrec_mod = request.form['mrec_mod']
+        memrem_mod = request.form['mrem_mod']
+        memapr_mod = request.form['ma_mod']
+        atencon_mod = request.form['ac_mod']
+        prax_mod = request.form['pr_mod']
+        calc_mod = request.form['cal_mod']
+        pensabs_mod = request.form['pabs_mod']
+        percep_mod = request.form['ptv_mod']
+
+        updated_patient = Patient.query.filter(Patient.name == name).first()
+        updated_camdex = CamdexData.query.filter(CamdexData.patient_name == name).first()
+
+        updated_patient.address = address_mod
+        updated_patient.phone = phone_mod
+        updated_patient.email = email_mod
+        updated_patient.age = age_mod
+        updated_patient.dni = dni_mod
+        updated_patient.birthdate = birthdate_mod
+
         db.session.commit()
 
-        flash('Historial clínico de paciente eliminado satisfactoriamente.', 'warning')
+        updated_camdex.mmse = mmse_mod
+        updated_camdex.mec = mec_mod
+        updated_camdex.ryh = ryh_mod
+        updated_camdex.ct = camcog_mod
+        updated_camdex.ori = orientacion_mod
+        updated_camdex.lt = lengt_mod
+        updated_camdex.lc = lengcom_mod
+        updated_camdex.lp = lengprod_mod
+        updated_camdex.mt = memt_mod
+        updated_camdex.mrec = memrec_mod
+        updated_camdex.mrem = memrem_mod
+        updated_camdex.ma = memapr_mod
+        updated_camdex.ac = atencon_mod
+        updated_camdex.pr = prax_mod
+        updated_camdex.cal = calc_mod
+        updated_camdex.pabs = pensabs_mod
+        updated_camdex.ptv = percep_mod
 
+        db.session.commit()
+
+        flash('Historial clínico de paciente modificado satisfactoriamente.', 'info')
+
+        return redirect(url_for("frontend.patients"))
     return redirect(url_for("frontend.patients"))
+
+
+@frontend.route('/delete_patient/<string:name>')
+def delete_patient(name):
+    patient = Patient.query.filter(Patient.name == name).first()
+    camdex = CamdexData.query.filter(CamdexData.patient_name == name).first()
+
+    db.session.delete(patient)
+    db.session.delete(camdex)
+    db.session.commit()
+
+    flash('Historial clínico de paciente eliminado satisfactoriamente.', 'warning')
+
+    return redirect(url_for("frontend.patients", patient=patient))
 
 
 @frontend.route("/patients/<name>")
