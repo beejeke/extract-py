@@ -1,7 +1,12 @@
+import json
+import plotly
+import plotly.graph_objs as go
+
 from flask import (Blueprint, flash, jsonify, render_template, redirect, url_for, logging, request)
 
 from extract.model import CamdexData, Patient, User, Variable, db
 from extract.schema import PatientInfo, CamdexDataInfo
+from extract.chart import data_graphs
 
 frontend = Blueprint('frontend', __name__, url_prefix='/')
 
@@ -9,6 +14,12 @@ frontend = Blueprint('frontend', __name__, url_prefix='/')
 @frontend.route('/')
 def index():
     return render_template('index.html')
+
+
+@frontend.route('/charts')
+def charts():
+    patient = Patient.query.order_by(Patient.name).all()
+    return render_template('charts.html', patient=patient)
 
 
 @frontend.route("/login", methods=["GET", "POST"])
@@ -197,6 +208,39 @@ def delete_patient(name):
     flash('Historial clínico de paciente eliminado satisfactoriamente.', 'warning')
 
     return redirect(url_for("frontend.patients", patient=patient))
+
+
+@frontend.route("/chart/<name>/<chart_name>")
+def split_data(name, chart_name):
+    camdex_mmse = CamdexData.query.filter(CamdexData.patient_name == name).all()
+
+    for row in camdex_mmse:
+        if chart_name == 'mmse':
+            mmse_x = [1, 2, 3, 4]
+            mmse_y = [yaxis.strip() for yaxis in row.mmse.split(',')]
+            mmse_y.reverse()
+
+            data_ = data_graphs[CamdexData.mmse](mmse_x, mmse_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'mec':
+            mec_x = [1, 2, 3, 4]
+            mec_y = [yaxis.strip() for yaxis in row.mec.split(',')]
+            mec_y.reverse()
+
+            data_ = data_graphs[CamdexData.mec](mec_x, mec_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'ryh':
+            ryh_x = [1, 2, 3, 4]
+            ryh_y = [yaxis.strip() for yaxis in row.ryh.split(',')]
+            ryh_y.reverse()
+
+            data_ = data_graphs[CamdexData.ryh](ryh_x, ryh_y)
+
+            return jsonify(data_)
 
 
 @frontend.route("/patients/<name>")
