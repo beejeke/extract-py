@@ -1,48 +1,14 @@
 {% extends "base.html" %}
 
-{% set title = "Pacientes" %}
+{% set title = "Gráficas" %}
 
 {% block content %}
-
-{% include 'messages.html' %}
-
-<div class="alert alert-info alert-dismissible fade show" role="alert" style="text-align: center;">
-    <strong>¡Bienvenid@!</strong> Aquí podrás <strong>añadir</strong> el historial de un nuevo paciente, <strong>modificar</strong>
-    sus datos o <strong>borrar</strong> su historial clínico.
-    <br>
-    <br>
-    Además, podrás consultar los datos del <strong> examen CAMDEX </strong> del paciente que seleccione.
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
 
 <div style="padding-top:20px; text-align: center; position: center;" class="bootstrap-iso">
     <div class="container-fluid">
         <div style="padding: 40px;" id="center" class="row">
             {% include 'patient_selector.html' %}
         </div>
-    </div>
-</div>
-
-<div class="card">
-    <div class="card-header">
-        <h5>Información del paciente</h5>
-    </div>
-    <div class="card-body">
-        <table id="camdex_patient" class="table table-striped table-bordered">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Dirección</th>
-                    <th>Teléfono</th>
-                    <th>E-mail</th>
-                    <th>Edad</th>
-                    <th>DNI</th>
-                    <th>F. Nacimiento</th>
-                </tr>
-            </thead>
-        </table>
     </div>
 </div>
 
@@ -77,6 +43,38 @@
     </div>
 </div>
 
+<div style="padding-bottom:40px;" id="accordion">
+    <div class="card">
+        <div style="text-align: center;position:relative;" class="card-header" id="headingOne">
+            <h3 class="mb-0">
+                <button id="show-mmse-btn" class="btn btn-info" data-toggle="collapse" data-target="#collapse-mmse-chart" aria-expanded="true" aria-controls="collapse-mmse-chart">
+                    Gráfica - MMSE
+                </button>
+                <button id="show-mec-btn" class="btn btn-info chart_btn" data-toggle="collapse" data-target="#collapse-mec-chart" aria-expanded="false" aria-controls="collapse-mec-chart">
+                    Gráfica - MEC
+                </button>
+                <button id="show-ryh-btn" class="btn btn-info chart_btn" data-toggle="collapse" data-target="#collapse-ryh-chart" aria-expanded="false" aria-controls="collapse-ryh-chart">
+                    Gráfica - RyH
+                </button>
+            </h3>
+        </div>
+        <div id="collapse-mmse-chart" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="table_prototype">
+                <div id="mmse_chart" class="data_chart"></div>
+            </div>
+        </div>
+        <div id="collapse-mec-chart" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="table_prototype">
+                <div id="mec_chart" class="data_chart"></div>
+            </div>
+        </div>
+        <div id="collapse-ryh-chart" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+            <div class="table_prototype">
+                <div id="ryh_chart" class="data_chart"></div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 {% block scripts %}
@@ -87,5 +85,11 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/camdex_info_dt.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/camdex_dt.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/extract.js') }}"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plotly/plotly-latest.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plotly/plotly-locale-es-latest.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plotly_charts/mmse_chart.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plotly_charts/mec_chart.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/plotly_charts/ryh_chart.js') }}"></script>
 
 {% endblock %}

@@ -26,13 +26,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="col-form-label">Nombre:</label>
-                                    <input type="text" class="form-control" name="name_new">
+                                    <input type="text" class="form-control" name="name_new" placeholder="Nombre completo">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="col-form-label">Dirección:</label>
-                                    <input type="text" class="form-control" name="address_new">
+                                    <input type="text" class="form-control" name="address_new" placeholder="Dirección del domicilio">
                                 </div>
                             </div>
                         </div>
@@ -40,13 +40,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="col-form-label">Teléfono:</label>
-                                    <input type="text" class="form-control" name="phone_new">
+                                    <input type="text" class="form-control" name="phone_new" placeholder="Número de teléfono">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="col-form-label">Correo:</label>
-                                    <input type="text" class="form-control" name="email_new">
+                                    <input type="text" class="form-control" name="email_new" placeholder="Correo electrónico (email)">
                                 </div>
                             </div>
                         </div>
@@ -54,19 +54,19 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="col-form-label">Edad:</label>
-                                    <input type="text" class="form-control" name="age_new">
+                                    <input type="text" class="form-control" name="age_new" placeholder="Edad del paciente">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="col-form-label">DNI:</label>
-                                    <input type="text" class="form-control" name="dni_new">
+                                    <input type="text" class="form-control" name="dni_new" placeholder="DNI del paciente">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label class="col-form-label">Fecha de nacimiento:</label>
-                                    <input type="text" class="form-control" name="birthdate_new">
+                                    <input type="text" class="form-control" name="birthdate_new" placeholder="DD/MM/AAAA">
                                 </div>
                             </div>
                         </div>
@@ -204,209 +204,43 @@
         <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                        <h5 class="modal-title" id="modalAddTitle3">Modificar datos del paciente</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-form-label">Nombre:</label>
-                                    <input type="text" class="form-control" name="name_new">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-form-label">Dirección:</label>
-                                    <input type="text" class="form-control" name="address_new">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-form-label">Teléfono:</label>
-                                    <input type="text" class="form-control" name="phone_new">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-form-label">Correo:</label>
-                                    <input type="text" class="form-control" name="email_new">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="col-form-label">Edad:</label>
-                                    <input type="text" class="form-control" name="age_new">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="col-form-label">DNI:</label>
-                                    <input type="text" class="form-control" name="dni_new">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="col-form-label">Fecha de nacimiento:</label>
-                                    <input type="text" class="form-control" name="birthdate_new">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalAddTitle4">Modificar datos del examen CAMDEX</h5>
-                    </div>
-                    <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="col-form-label">MMSE:</label>
-                                <input type="text" class="form-control" name="mmse_new">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="col-form-label">MEC:</label>
-                                <input type="text" class="form-control" name="mec_new">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="col-form-label">Test Roth y Hopkins:</label>
-                                <input type="text" class="form-control" name="roth_new">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="col-form-label">Camcog total:</label>
-                                <input type="text" class="form-control" name="camcog_new">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="col-form-label">Orientación:</label>
-                                <input type="text" class="form-control" name="orientacion_new">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="col-form-label">Lenguaje total:</label>
-                                <input type="text" class="form-control" name="lengt_new">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="col-form-label">Lenguaje comprensivo:</label>
-                                <input type="text" class="form-control" name="lengcom_new">
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="form-group">
-                                <label class="col-form-label">Lenguaje productivo:</label>
-                                <input type="text" class="form-control" name="lengprod_new">
-                            </div>
-                        </div>
-                    </div>
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="col-form-label">Memoria total:</label>
-                                    <input type="text" class="form-control" name="memt_new">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="col-form-label">Memoria reciente:</label>
-                                    <input type="text" class="form-control" name="memrec_new">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="col-form-label">Memoria remota:</label>
-                                    <input type="text" class="form-control" name="memrem_new">
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="col-form-label">Memoria aprendizaje:</label>
-                                    <input type="text" class="form-control" name="memapr_new">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="col-form-label">Atención-concentración:</label>
-                                    <input type="text" class="form-control" name="atencon_new">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="col-form-label">Praxis:</label>
-                                    <input type="text" class="form-control" name="prax_new">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="col-form-label">Cálculo:</label>
-                                    <input type="text" class="form-control" name="calc_new">
-                                </div>
-                            </div>
-                        </div>
-                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-form-label">Pensamiento abstracto:</label>
-                                    <input type="text" class="form-control" name="pensabs_new">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="col-form-label">Percepción táctil-visual:</label>
-                                    <input type="text" class="form-control" name="percep_new">
-                                </div>
-                            </div>
-                         </div>
-                    </div>
-                     <div class="modal-footer">
-                        <button type="button" class="btn btn-warning" data-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-            </div>
-        </div>
-    </div>
-
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalDelete">Borrar</button>
-
-    <div class="modal fade" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="modalDeleteLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                {% for patients in patient %}
-                <form action="{{ url_for('frontend.delete_patient', name=patients.name) }}" method="POST">
-                    {% endfor %}
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Borrar historial del paciente</h5>
+                    <h5 class="modal-title" id="modalAddTitle3">Modificar datos del paciente</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>¿Está seguro de que desea borrar permanentemente el historial clínico y los datos de este paciente?</p>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <table id="edit_patient_dt" class="display" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <td>Nombre del paciente</td>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for patients in patient %}
+                                        <tr>
+                                            <td>{{ patients.name }}</td>
+                                            <td>
+                                                <a href="/edit_patient/{{ patients.name }}">
+                                                    <button type="button" class="btn btn-info">Editar</button>
+                                                </a>
+
+                                                <a href="/delete_patient/{{ patients.name }}">
+                                                    <button type="button" class="btn btn-danger">Borrar</button>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-danger">Borrar</button>
-                </div>
-                </form>
             </div>
         </div>
     </div>

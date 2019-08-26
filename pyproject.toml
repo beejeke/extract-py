@@ -12,6 +12,7 @@ flask-migrate = "^2.5"
 flask-marshmallow = "^0.10.1"
 marshmallow-sqlalchemy = "^0.17.0"
 marshmallow_sqlalchemy = "^0.17.0"
+plotly = "^4.1"
 
 [tool.poetry.dev-dependencies]
 

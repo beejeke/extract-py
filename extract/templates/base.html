@@ -30,9 +30,9 @@
                     <a class="nav-link" href="{{ url_for('frontend.patients') }}">Pacientes</a>
                 </li>
                 <li class="li1 nav-item{% if title == 'Gráficas' %} active{% endif %}">
-                    <a class="nav-link" href="#">Gráficas</a>
+                    <a class="nav-link" href="{{ url_for('frontend.charts') }}">Gráficas</a>
                 </li>
-                <li class="li1 nav-item{% if title == 'Gráficas' %} active{% endif %}">
+                <li class="li1 nav-item{% if title == 'Log Out' %} active{% endif %}">
                     <a class="nav-link" id="logout" href="{{ url_for('frontend.index') }}">Log Out</a>
                 </li>
             </ul>

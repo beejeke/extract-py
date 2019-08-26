@@ -89,6 +89,14 @@ body {
     color: #ad3324;
 }
 
+div.table_prototype{
+    text-align: center;
+}
+
+div.table_prototype table {
+   margin: 0 auto;
+   text-align: left;
+}
 
 @keyframes fadeIn {
     0% {

@@ -1,7 +1,12 @@
+import json
+import plotly
+import plotly.graph_objs as go
+
 from flask import (Blueprint, flash, jsonify, render_template, redirect, url_for, logging, request)
 
 from extract.model import CamdexData, Patient, User, Variable, db
 from extract.schema import PatientInfo, CamdexDataInfo
+from extract.chart import data_graphs
 
 frontend = Blueprint('frontend', __name__, url_prefix='/')
 
@@ -9,6 +14,12 @@ frontend = Blueprint('frontend', __name__, url_prefix='/')
 @frontend.route('/')
 def index():
     return render_template('index.html')
+
+
+@frontend.route('/charts')
+def charts():
+    patient = Patient.query.order_by(Patient.name).all()
+    return render_template('charts.html', patient=patient)
 
 
 @frontend.route("/login", methods=["GET", "POST"])
@@ -111,16 +122,125 @@ def add_patient():
     return redirect(url_for("frontend.patients"))
 
 
-@frontend.route('/delete_patient/<name>', methods=["POST"])
-def delete_patient(name):
+@frontend.route('/edit_patient/<string:name>')
+def edit_patient(name):
+    patient = Patient.query.filter(Patient.name == name).first()
+    camdex = CamdexData.query.filter(CamdexData.patient_name == name).first()
+
+    return render_template('edit.html', patient=patient, camdex=camdex)
+
+
+@frontend.route('/update_patient/<string:name>', methods=['POST'])
+def update_patient(name):
     if request.method == 'POST':
-        Patient.query.filter(Patient.name == name).delete()
-        CamdexData.query.filter(CamdexData.patient_name == name).delete()
+        address_mod = request.form['address_mod']
+        phone_mod = request.form['phone_mod']
+        email_mod = request.form['email_mod']
+        age_mod = request.form['age_mod']
+        dni_mod = request.form['dni_mod']
+        birthdate_mod = request.form['birthdate_mod']
+
+        mmse_mod = request.form['mmse_mod']
+        mec_mod = request.form['mec_mod']
+        ryh_mod = request.form['ryh_mod']
+        camcog_mod = request.form['ct_mod']
+        orientacion_mod = request.form['ori_mod']
+        lengt_mod = request.form['lt_mod']
+        lengcom_mod = request.form['lc_mod']
+        lengprod_mod = request.form['lp_mod']
+        memt_mod = request.form['mt_mod']
+        memrec_mod = request.form['mrec_mod']
+        memrem_mod = request.form['mrem_mod']
+        memapr_mod = request.form['ma_mod']
+        atencon_mod = request.form['ac_mod']
+        prax_mod = request.form['pr_mod']
+        calc_mod = request.form['cal_mod']
+        pensabs_mod = request.form['pabs_mod']
+        percep_mod = request.form['ptv_mod']
+
+        updated_patient = Patient.query.filter(Patient.name == name).first()
+        updated_camdex = CamdexData.query.filter(CamdexData.patient_name == name).first()
+
+        updated_patient.address = address_mod
+        updated_patient.phone = phone_mod
+        updated_patient.email = email_mod
+        updated_patient.age = age_mod
+        updated_patient.dni = dni_mod
+        updated_patient.birthdate = birthdate_mod
+
         db.session.commit()
 
-        flash('Historial clínico de paciente eliminado satisfactoriamente.', 'warning')
+        updated_camdex.mmse = mmse_mod
+        updated_camdex.mec = mec_mod
+        updated_camdex.ryh = ryh_mod
+        updated_camdex.ct = camcog_mod
+        updated_camdex.ori = orientacion_mod
+        updated_camdex.lt = lengt_mod
+        updated_camdex.lc = lengcom_mod
+        updated_camdex.lp = lengprod_mod
+        updated_camdex.mt = memt_mod
+        updated_camdex.mrec = memrec_mod
+        updated_camdex.mrem = memrem_mod
+        updated_camdex.ma = memapr_mod
+        updated_camdex.ac = atencon_mod
+        updated_camdex.pr = prax_mod
+        updated_camdex.cal = calc_mod
+        updated_camdex.pabs = pensabs_mod
+        updated_camdex.ptv = percep_mod
 
+        db.session.commit()
+
+        flash('Historial clínico de paciente modificado satisfactoriamente.', 'info')
+
+        return redirect(url_for("frontend.patients"))
     return redirect(url_for("frontend.patients"))
+
+
+@frontend.route('/delete_patient/<string:name>')
+def delete_patient(name):
+    patient = Patient.query.filter(Patient.name == name).first()
+    camdex = CamdexData.query.filter(CamdexData.patient_name == name).first()
+
+    db.session.delete(patient)
+    db.session.delete(camdex)
+    db.session.commit()
+
+    flash('Historial clínico de paciente eliminado satisfactoriamente.', 'warning')
+
+    return redirect(url_for("frontend.patients", patient=patient))
+
+
+@frontend.route("/chart/<name>/<chart_name>")
+def split_data(name, chart_name):
+    camdex_mmse = CamdexData.query.filter(CamdexData.patient_name == name).all()
+
+    for row in camdex_mmse:
+        if chart_name == 'mmse':
+            mmse_x = [1, 2, 3, 4]
+            mmse_y = [yaxis.strip() for yaxis in row.mmse.split(',')]
+            mmse_y.reverse()
+
+            data_ = data_graphs[CamdexData.mmse](mmse_x, mmse_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'mec':
+            mec_x = [1, 2, 3, 4]
+            mec_y = [yaxis.strip() for yaxis in row.mec.split(',')]
+            mec_y.reverse()
+
+            data_ = data_graphs[CamdexData.mec](mec_x, mec_y)
+
+            return jsonify(data_)
+
+        elif chart_name == 'ryh':
+            ryh_x = [1, 2, 3, 4]
+            ryh_y = [yaxis.strip() for yaxis in row.ryh.split(',')]
+            ryh_y.reverse()
+
+            data_ = data_graphs[CamdexData.ryh](ryh_x, ryh_y)
+
+            return jsonify(data_)
 
 
 @frontend.route("/patients/<name>")
