@@ -1,0 +1,7 @@
+flask-marshmallow<0.11.0,>=0.10.1
+flask-migrate<3.0,>=2.5
+flask-sqlalchemy<3.0,>=2.4
+flask<2.0,>=1.0
+marshmallow-sqlalchemy<0.18.0,>=0.17.0
+marshmallow_sqlalchemy<0.18.0,>=0.17.0
+plotly<5.0,>=4.1

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "extract-py"
+name = "extract"
 version = "0.1.0"
 description = "Final project of Computer Science degree by Omar Mendo Mesa"
 authors = ["Omar Mendo <omen.mesa20@gmail.com>"]
