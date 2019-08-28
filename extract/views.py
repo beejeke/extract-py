@@ -208,11 +208,11 @@ def delete_patient(name):
 
 @frontend.route("/chart/<name>/<chart_name>")
 def split_data(name, chart_name):
-    camdex_mmse = CamdexData.query.filter(CamdexData.patient_name == name).all()
+    camdex = CamdexData.query.filter(CamdexData.patient_name == name).all()
 
-    dates = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    dates = list(range(1, 20))
 
-    for row in camdex_mmse:
+    for row in camdex:
         if chart_name == 'mmse':
             mmse_x = dates
             mmse_y = [yaxis.strip() for yaxis in row.mmse.split(',')]
