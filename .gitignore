@@ -5,4 +5,8 @@ __pycache__
 poetry.lock
 .python-version
 *.pyc
+*.odt
+*.txt
+extract.egg-info
 develop.db
+.test.txt.swp
