@@ -10,7 +10,7 @@ $('#mmse_chart').on('update', function() {
         Plotly.react('mmse_chart', chart.data, chart.layout, chart.config);
     });
 
-    $('#collapse-mmse-chart').on('shown.bs.collapse', function() {
+    $('#collapse-others-chart').on('shown.bs.collapse', function() {
         var update = {
 	        autosize: true
         }

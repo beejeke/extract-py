@@ -10,7 +10,7 @@ $('#cal_chart').on('update', function() {
         Plotly.react('cal_chart', chart.data, chart.layout, chart.config);
     });
 
-    $('#collapse-cal-chart').on('shown.bs.collapse', function() {
+    $('#collapse-others-chart').on('shown.bs.collapse', function() {
         var update = {
 	        autosize: true
         }

@@ -10,7 +10,7 @@ $('#ct_chart').on('update', function() {
         Plotly.react('ct_chart', chart.data, chart.layout, chart.config);
     });
 
-    $('#collapse-ct-chart').on('shown.bs.collapse', function() {
+    $('#collapse-others-chart').on('shown.bs.collapse', function() {
         var update = {
 	        autosize: true
         }

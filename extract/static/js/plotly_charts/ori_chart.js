@@ -10,7 +10,7 @@ $('#ori_chart').on('update', function() {
         Plotly.react('ori_chart', chart.data, chart.layout, chart.config);
     });
 
-    $('#collapse-ori-chart').on('shown.bs.collapse', function() {
+    $('#collapse-others-chart').on('shown.bs.collapse', function() {
         var update = {
 	        autosize: true
         }
