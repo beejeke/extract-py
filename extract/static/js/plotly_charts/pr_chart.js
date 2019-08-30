@@ -10,7 +10,7 @@ $('#pr_chart').on('update', function() {
         Plotly.react('pr_chart', chart.data, chart.layout, chart.config);
     });
 
-    $('#collapse-pr-chart').on('shown.bs.collapse', function() {
+    $('#collapse-others-chart').on('shown.bs.collapse', function() {
         var update = {
 	        autosize: true
         }

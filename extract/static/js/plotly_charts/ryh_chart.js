@@ -10,7 +10,7 @@ $('#ryh_chart').on('update', function() {
         Plotly.react('ryh_chart', chart.data, chart.layout, chart.config);
     });
 
-    $('#collapse-ryh-chart').on('shown.bs.collapse', function() {
+    $('#collapse-others-chart').on('shown.bs.collapse', function() {
         var update = {
 	        autosize: true
         }

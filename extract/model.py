@@ -31,7 +31,7 @@ class Variable(Enum):
     @property
     def name_es(self):
         name = {
-            self.MMSE: "Mini Mental Satet de Folstein",
+            self.MMSE: "Mini Mental State de Folstein",
             self.MEC: "Mini Examen Cognoscitivo de Lobo y colbs",
             self.RYH: "Test de Atención-Memoria-Concentración de Roth y Hopkins",
             self.CT: "Camcog total",

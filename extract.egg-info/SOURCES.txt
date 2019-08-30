@@ -7,11 +7,8 @@ extract/app.pyc
 extract/chart.py
 extract/cli.py
 extract/erg32.odt
-extract/erg32.txt
 extract/igb46.odt
-extract/igb46.txt
 extract/jpg49.odt
-extract/jpg49.txt
 extract/model.py
 extract/odt2txt.sh
 extract/parser.py

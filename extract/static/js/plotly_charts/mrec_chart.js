@@ -10,7 +10,7 @@ $('#mrec_chart').on('update', function() {
         Plotly.react('mrec_chart', chart.data, chart.layout, chart.config);
     });
 
-    $('#collapse-mrec-chart').on('shown.bs.collapse', function() {
+    $('#collapse-mem-chart').on('shown.bs.collapse', function() {
         var update = {
 	        autosize: true
         }

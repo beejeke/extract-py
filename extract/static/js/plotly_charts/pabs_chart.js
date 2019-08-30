@@ -10,7 +10,7 @@ $('#pabs_chart').on('update', function() {
         Plotly.react('pabs_chart', chart.data, chart.layout, chart.config);
     });
 
-    $('#collapse-pabs-chart').on('shown.bs.collapse', function() {
+    $('#collapse-others-chart').on('shown.bs.collapse', function() {
         var update = {
 	        autosize: true
         }
