@@ -1,6 +1,7 @@
 .DS_STORE
 .idea/
 .venv
+.test
 __pycache__
 poetry.lock
 .python-version
