@@ -25,7 +25,7 @@ def cli():
     pass
 
 
-@cli.command(help="Realiza una conversión de formato (.odt a .txt) y elimina líneas blancas")
+@cli.command(help="Realiza una conversión de formato (.odt a .txt) y elimina líneas vacías")
 @click.argument("in_filename")
 def convert(in_filename):
 
@@ -129,7 +129,6 @@ def camdex(in_filename):
         print("ERROR: Input file does not exist ❌\n\n ")
         sys.exit()
     with open(in_filename, encoding="utf-8") as file:
-
         for line in file:
             if re.match('D/Dña', line):
                 add_data = []

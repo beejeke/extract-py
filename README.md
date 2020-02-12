@@ -29,6 +29,40 @@ en el tiempo gráficamente.
 *   [DataTables](https://datatables.net/)
 *   [Plotly.js](https://plot.ly/javascript/)
 
+## Secciones principales del proyecto
+*Extract-py* está desarrollado íntegramente en **[Flask](http://flask.pocoo.org/)**, uno de los framework de desarrollo web
+más populares para *Python*
+* Nada más entrar a la aplicación web desarrollada, tenemos una página de inicio de sesión para los especialistas del centro
+médico.
+
+![Inicio](/extract/static/img/pic1.png "Pantalla de inicio")
+
+* A continuación, tenemos un formulario de login y otro de registro, ya que necesitamos tener un control de usuarios debido
+al carácter sensible de los datos usados en la aplicación.
+
+![Login](/extract/static/img/pic2.png "Formulario de login")
+
+* Una vez hemos accedido a la plataforma, tenemos distintas tablas con información relevante al paciente seleccionado: una
+con sus datos personales (superior) y otra con las distintas mediciones realizadas en las múltiples sesiones del examen CAMDEX-R 
+del paciente.
+
+![Tablas](/extract/static/img/pic3.png "Tablas de datos")
+
+* Además, en esta sección tenemos un CRUD para la gestión de los usuarios del sistema.
+
+![CRUD](/extract/static/img/pic4.png "CRUD de gestión de usuarios")
+
+* Por último, tenemos la sección más interesante, que es la de visualización de los datos mediante gráficas, desarroladas con *Plotly*,
+con el fin de que tanto el especialista como el paciente/familiares puedas comprender la mejoría/empeoramiento de los resultados
+obtenidos en las diferentes pruebas del examen CAMDEX-R a lo largo del tiempo (pinchando en la imagen, se accede a un vídeo de YouTube).
+
+[![Visualización](/extract/static/img/pic5.png)](https://youtu.be/qUaQWQHkdAc "Visualización")
+
+## Memoria del proyecto
+
+Para acceder a la memoria del proyecto, acceda a este [link](https://riull.ull.es/xmlui/handle/915/16587).
+
+
 #### Contacto
 
 *   Universidad de La Laguna - ESIT
